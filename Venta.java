@@ -1,4 +1,4 @@
-package TP0;
+package macowins;
 
 import java.util.ArrayList;
 import java.util.List;

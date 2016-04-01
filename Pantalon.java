@@ -1,16 +1,23 @@
-package TP0;
+package macowins;
 
 public class Pantalon extends Prenda {
-
-	int precioBase = 250;
-
-	public double precioFinal() {
-		if (esImportado) {
-			return ((valorFijoNegocio() + precioBase) * aplicaTasaImportacion);
-		} else {
-			return (valorFijoNegocio() + precioBase);
-		}
-
+	
+	public double getPrecioBase(){
+		return 250;
+	}
+	
+	
+	public double aumentarTasaImp(){
+		return super.agregarTasaImportacion();
 	}
 
+	@Override
+	public double calculoValorFinal() {
+		double precioFinal;
+		double valorNegocio;
+		valorNegocio = Prenda.importeFijoNegocio();
+		precioFinal = (this.getPrecioBase() + valorNegocio) * this.aumentarTasaImp();
+		return precioFinal;
+		}
 }
+

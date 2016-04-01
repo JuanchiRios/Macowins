@@ -1,4 +1,4 @@
-package TP0;
+package macowins;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +20,14 @@ public class Macowins {
 			Venta venta = inicializarVenta(cantidad);
 			Saco saco = new Saco();
 			venta.agregarPrenda(saco);
-			venta.precioTotal = venta.cantidadPrendas * saco.precioFinal();
+			venta.precioTotal = venta.cantidadPrendas * saco.calculoValorFinal();
 			System.out.println(venta.precioTotal);
 
 		} else if (tipoPrenda == "Camisa") {
 			Venta venta = inicializarVenta(cantidad);
 			Camisa camisa = new Camisa();
 			venta.agregarPrenda(camisa);
-			venta.precioTotal = venta.cantidadPrendas * camisa.precioFinal();
+			venta.precioTotal = venta.cantidadPrendas * camisa.calculoValorFinal();
 			System.out.println(venta.precioTotal);
 
 		} else if (tipoPrenda == "Pantalon") {
@@ -35,22 +35,11 @@ public class Macowins {
 			Venta venta = inicializarVenta(cantidad);
 			Pantalon pantalon = new Pantalon();
 			venta.agregarPrenda(pantalon);
-			venta.precioTotal = venta.cantidadPrendas * pantalon.precioFinal();
+			venta.precioTotal = venta.cantidadPrendas * pantalon.calculoValorFinal();
 			System.out.println(venta.precioTotal);
 
 		} else {
 			System.out.println("El tipo de prenda ingresado no es válido.");
 		}
-
-	}
-
-	
-
-	public double calcularGanancias(){
-		double ganancias = 0;
-		for (int i = 0; i < ventas.size(); i++){
-			ganancias = ganancias + ventas.get(i).precioTotal;
-		}
-		return ganancias;
-	}
+    }
 }

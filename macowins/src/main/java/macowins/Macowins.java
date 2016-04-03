@@ -14,11 +14,12 @@ public class Macowins {
 
 	}
 
-	public double calcularGanancias() {
-		double ganancias = 0;
-		for (int i = 0; i < ventas.size(); i++) {
-			ganancias = ganancias + ventas.get(i).getPrecioTotal();
-		}
+	public double calcularGanancias(int fecha) {
+		double ganancias = ventas.stream()
+				.filter(venta -> venta.getFecha() == fecha)
+				.mapToDouble(venta -> venta.getPrecioTotal())
+				.sum();
 		return ganancias;
+
 	}
 }

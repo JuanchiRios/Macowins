@@ -2,17 +2,16 @@ package macowins;
 
 public class Saco extends Prenda { 
 
-    public Saco(double precioBase, double tasaImp, double valorFijoNegocio, boolean esImportada) {
-		super(precioBase, tasaImp, valorFijoNegocio, esImportada);
-		}
-
-	public double getPrecioBase(){
-   	 return 200;
-    }
+private double precioBase = 0;
     
-    public double calculoPrecioFinal(Saco unSaco){
+	public double getPrecioBasePrenda(){
+    	precioBase = 300;
+    	return precioBase;
+    }
+
+	public double calculoPrecioFinal(boolean importado){
    	 double precioFinal;
-   	 precioFinal = unSaco.calculoFinalSegunPrenda(unSaco, isEsImportada());
+   	 precioFinal = this.calculoFinalSegunPrenda(importado);
    	 return precioFinal;
     }
 }

@@ -1,44 +1,52 @@
 package macowins;
 
 public abstract class Prenda {
+        // Atributos
+	
+	private double tasaDeImportacion;
+	private boolean esPrendaImportada;
+	private double valorFijoNegocio;
+	    
+	    //Constructor Prenda
         
-	    private double precioBase;
-		private double tasaImp;
-		private double valorFijoNegocio;
-		private boolean esImportada;
-		
-		public double getPrecioBase() {
-			return precioBase;
+	    public Prenda(){
+        	
+        	tasaDeImportacion = 1.30;
+        	esPrendaImportada = true;
+        	valorFijoNegocio = 5.0;
+        }
+	    
+        //Getters y Setters
+       
+        
+
+	public boolean isEsPrendaImportada() {
+			return esPrendaImportada;
 		}
 
-		public Prenda(double precioBase,double tasaImp,double valorFijoNegocio,boolean esImportada){
-			this.precioBase = 0;
-			this.tasaImp = 1.30;
-			this.valorFijoNegocio = 100.0;
-			this.setEsImportada(true);
+		public void setEsPrendaImportada(boolean esPrendaImportada) {
+			this.esPrendaImportada = esPrendaImportada;
 		}
-	
-		public double calculoFinalSegunPrenda(Prenda unaPrenda, boolean esImportada){
+
+		//Metodos
+		
+		public abstract double getPrecioBasePrenda();
+        
+		public double calculoFinalSegunPrenda(boolean esImportada){
 			
 			double valorRealFinal = 0;
 			if(esImportada){
-			  valorRealFinal = ((unaPrenda.getPrecioBase()) + (unaPrenda.valorFijoNegocio)) * (unaPrenda.tasaImp);
+			  valorRealFinal = ((this.getPrecioBasePrenda()) + (this.valorFijoNegocio)) * (this.tasaDeImportacion);
 			  }
 			
 			else{
-			  valorRealFinal = (unaPrenda.getPrecioBase()) + (unaPrenda.valorFijoNegocio);
+			  valorRealFinal = (this.getPrecioBasePrenda()) + (this.valorFijoNegocio);
 			}
 		
 	    return valorRealFinal; 	
 		}
 
-		public boolean isEsImportada() {
-			return esImportada;
-		}
-
-		public void setEsImportada(boolean esImportada) {
-			this.esImportada = esImportada;
-		}
+	
 }
 
 	

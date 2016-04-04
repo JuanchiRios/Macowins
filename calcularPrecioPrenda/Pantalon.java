@@ -2,18 +2,17 @@ package macowins;
 
 
 public class Pantalon extends Prenda {
-
-    public Pantalon(double precioBase, double tasaImp, double valorFijoNegocio, boolean esImportada) {
-		super(precioBase, tasaImp, valorFijoNegocio, esImportada);
-		}
-
-	public double getPrecioBase(){
-   	 return 250;
-    }
     
-    public double calculoPrecioFinal(Pantalon unPantalon){
+	private double precioBase = 0;
+    
+	public double getPrecioBasePrenda(){
+    	precioBase = 250;
+    	return precioBase;
+    }
+
+	public double calculoPrecioFinal(boolean importado){
    	 double precioFinal;
-   	 precioFinal = unPantalon.calculoFinalSegunPrenda(unPantalon, isEsImportada());
+   	 precioFinal = this.calculoFinalSegunPrenda(importado);
    	 return precioFinal;
     }
 }

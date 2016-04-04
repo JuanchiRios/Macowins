@@ -32,15 +32,18 @@ public abstract class Prenda {
 		
 		public abstract double getPrecioBasePrenda();
         
+		public double sumaFijaPrenda(){
+			return (this.getPrecioBasePrenda() + this.valorFijoNegocio);
+		}
 		public double calculoFinalSegunPrenda(boolean esImportada){
 			
 			double valorRealFinal = 0;
 			if(esImportada){
-			  valorRealFinal = ((this.getPrecioBasePrenda()) + (this.valorFijoNegocio)) * (this.tasaDeImportacion);
+			  valorRealFinal = this.sumaFijaPrenda() * (this.tasaDeImportacion);
 			  }
 			
 			else{
-			  valorRealFinal = (this.getPrecioBasePrenda()) + (this.valorFijoNegocio);
+			  valorRealFinal = this.sumaFijaPrenda();
 			}
 		
 	    return valorRealFinal; 	

@@ -1,5 +1,6 @@
 package macowins;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +9,11 @@ public class Venta {
 	//Atributos
 	private int cantidadPrendas;
 	private double precioTotalVentaPrenda;
-	private int fecha;
+	private LocalDate fecha;
 	List<Prenda> prendas = new ArrayList<Prenda>();
 	
 	//Constructor Venta
-	public Venta(Prenda prenda, int cantidad, int fecha, boolean esImportada){
+	public Venta(Prenda prenda, int cantidad, String fecha, boolean esImportada){
 		this.setCantidadPrendas(cantidad);
 		this.prendas.add(prenda);
 		setPrecioTotalVentaPrenda((prenda.calculoFinalSegunPrenda(esImportada) * cantidad));
@@ -28,12 +29,12 @@ public class Venta {
 		this.cantidadPrendas = cantidadPrendas;
 	}
 
-	public int getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(int fecha) {
-		this.fecha = fecha;
+	public void setFecha(String fecha) {
+		this.fecha = LocalDate.parse(fecha);
 	}
 
 	public double getPrecioTotalVentaPrenda() {

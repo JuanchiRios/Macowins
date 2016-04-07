@@ -1,26 +1,26 @@
 package macowins;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Macowins {
 
-	//Atributos
-	
+	// Atributos
+
 	List<Venta> ventas = new ArrayList<Venta>();
 
-	//Metodos
-	
-	public void crearVenta(Prenda prenda, int cantidad, int fecha, boolean esImportada) {
+	// Metodos
 
-		Venta venta = new Venta(prenda, cantidad, fecha, esImportada);
+	public void crearVenta(Venta venta) {
+
 		this.ventas.add(venta);
 
 	}
 
-	public double calcularGanancias(int fecha) {
+	public double calcularGanancias(LocalDate fecha) {
 		double ganancias = ventas.stream()
-				.filter(venta -> venta.getFecha() == fecha)
+				.filter(venta -> venta.getFecha().isEqual(fecha))
 				.mapToDouble(venta -> venta.getPrecioTotalVentaPrenda())
 				.sum();
 		return ganancias;

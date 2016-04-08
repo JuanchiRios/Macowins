@@ -10,19 +10,13 @@ public class Camisa extends Prenda {
     public Camisa(){
     	precioBase = 200;
     }
-    
     //Metodos
-	public double getPrecioBasePrenda(){
+	
+    public double getPrecioBasePrenda(){
     	return precioBase;
     }
-
-	public double calculoPrecioFinal(boolean importado){
-    	 double precioFinal;
-    	 precioFinal = this.calculoFinalSegunPrenda(importado);
-    	 return precioFinal;
-     }
+ 
 }
-
 
 
 

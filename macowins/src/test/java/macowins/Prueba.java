@@ -1,7 +1,5 @@
 package macowins;
 
-import java.time.LocalDate;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +9,10 @@ public class Prueba {
 	private Camisa unaCamisa;
 	private Saco unSaco;
 	
-	
 	private Macowins localMacowins;
     
 	@Before
 	public void initialize(){
-		
 		unPantalon = new Pantalon();
 		unaCamisa = new Camisa();
 		unSaco = new Saco();
@@ -32,18 +28,10 @@ public class Prueba {
 	
 	@Test
 	public void laGananciaDelDia(){
-		Venta ventaCamisa = new Venta(unaCamisa, 5, "2016-01-20", true);
-		Venta ventaPantalon = new Venta(unPantalon, 2, "2016-01-20", false);
-		Venta ventaSaco = new Venta(unSaco,2,"2016-01-21",false);
-		
-		localMacowins.crearVenta(ventaCamisa);
-		localMacowins.crearVenta(ventaPantalon);
-		localMacowins.crearVenta(ventaSaco);
-		
-		String fechaGanancias = "2016-01-20";
-		
-		double gananciaDia = localMacowins.calcularGanancias(LocalDate.parse(fechaGanancias));
-		
+		localMacowins.crearVenta(unaCamisa, 5, 200116, true);
+		localMacowins.crearVenta(unPantalon, 2, 200116, false);
+		localMacowins.crearVenta(unSaco,2,210116,false);
+		double gananciaDia = localMacowins.calcularGanancias(200116);
 		Assert.assertEquals(gananciaDia, 1842.5,0);
 	}
 }

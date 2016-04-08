@@ -6,7 +6,7 @@ public abstract class Prenda {
 	private double tasaDeImportacion;
 	private boolean esPrendaImportada;
 	private double valorFijoNegocio;
-	  
+	    
 	    //Constructor Prenda
         
 	    public Prenda(){
@@ -18,7 +18,9 @@ public abstract class Prenda {
 	    
         //Getters y Setters
        
-        public boolean isEsPrendaImportada() {
+        
+
+	    public boolean isEsPrendaImportada() {
 			return esPrendaImportada;
 		}
 
@@ -30,24 +32,24 @@ public abstract class Prenda {
 		
 		public abstract double getPrecioBasePrenda();
         
-		
-		
-        public double sumaFijaPrenda(){
+		public double sumaFijaPrenda(){
 			return (this.getPrecioBasePrenda() + this.valorFijoNegocio);
 		}
-		
-		
 		public double calculoFinalSegunPrenda(boolean esImportada){
 			
+			double valorRealFinal = 0;
 			if(esImportada){
-			  return (this.sumaFijaPrenda() * (this.tasaDeImportacion));
+			  valorRealFinal = this.sumaFijaPrenda() * (this.tasaDeImportacion);
 			  }
 			
 			else{
-			  return (this.sumaFijaPrenda());
+			  valorRealFinal = this.sumaFijaPrenda();
 			}
+		
+	    return valorRealFinal; 	
 		}
 
+	
 }
 
 	

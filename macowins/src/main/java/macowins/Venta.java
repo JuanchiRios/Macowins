@@ -15,10 +15,9 @@ public class Venta {
 	private Prenda unaPrenda;
 	
 	//Constructor Venta
-	public Venta(Prenda prenda, int cantidad, String fecha, boolean esImportada){
+	public Venta(Prenda prenda, int cantidad, String fecha){
 		this.setCantidadPrendas(cantidad);
 		this.prendas.add(prenda);
-		prenda.setEsPrendaImportada(esImportada);
 		unaPrenda = prenda;
 		this.setFecha(fecha);
 	}
@@ -44,7 +43,7 @@ public class Venta {
 	
 	public double calculoVenta(){
 		
-		return unaPrenda.calculoFinalSegunPrenda(unaPrenda.isEsPrendaImportada()) * this.getCantidadPrendas();
+		return unaPrenda.calculoFinalSegunPrenda() * this.getCantidadPrendas();
 	}
 	
 		

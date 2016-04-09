@@ -13,28 +13,30 @@ public class Prueba {
 	
 	
 	private Macowins localMacowins;
+	private Sarkany rickySarkany;
+	private Armani armani;
     
 	@Before
 	public void initialize(){
-		
-		unPantalon = new Pantalon();
-		unaCamisa = new Camisa();
-		unSaco = new Saco();
+		rickySarkany = new Sarkany();
+		armani = new Armani();
+		unPantalon = new Pantalon(false,rickySarkany,10);
+		unaCamisa = new Camisa(true,rickySarkany);
+		unSaco = new Saco(false,armani,3);
 		localMacowins = new Macowins();
 		}
 	
 	@Test
 	public void cuantoCuestaUnPantalon(){
-		double precioPantalon;
-		precioPantalon = unPantalon.calculoFinalSegunPrenda(true);
-		Assert.assertEquals(331.5,precioPantalon,0);
+		double precioPantalon = unPantalon.calculoFinalSegunPrenda();;
+		Assert.assertEquals(291.5,precioPantalon,0);
 	}
 	
 	@Test
 	public void laGananciaDelDia(){
-		Venta ventaCamisa = new Venta(unaCamisa, 5, "2016-01-20", true);
-		Venta ventaPantalon = new Venta(unPantalon, 2, "2016-01-20", false);
-		Venta ventaSaco = new Venta(unSaco,2,"2016-01-21",false);
+		Venta ventaCamisa = new Venta(unaCamisa, 1, "2016-01-20");
+		Venta ventaPantalon = new Venta(unPantalon, 1, "2016-01-20");
+		Venta ventaSaco = new Venta(unSaco,2,"2016-01-21");
 		
 		localMacowins.crearVenta(ventaCamisa);
 		localMacowins.crearVenta(ventaPantalon);
@@ -44,7 +46,7 @@ public class Prueba {
 		
 		double gananciaDia = localMacowins.calcularGanancias(LocalDate.parse(fechaGanancias));
 		
-		Assert.assertEquals(gananciaDia, 1842.5,0);
+		Assert.assertEquals(gananciaDia, 584.65,0.1);
 	}
 }
 

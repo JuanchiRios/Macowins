@@ -1,7 +1,5 @@
 language: java
-java:
-   - 1.8.0_77
- jdk:
+jdk:
   - oraclejdk8
 
 after_success:
